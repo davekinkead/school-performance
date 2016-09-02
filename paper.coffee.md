@@ -1,6 +1,6 @@
 ---
 title: What can student results tell us about school performance?
-author: "by -----"
+author: Dave Kinkead
 email: d.kinkead@uq.edu.au
 status: JPS Submission
 bibliography: /Users/dave/Dropbox/Research/readings/.library.bibtex
