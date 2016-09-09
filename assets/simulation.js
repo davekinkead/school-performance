@@ -9554,7 +9554,7 @@
   if (typeof define === "function" && define.amd) this.d3 = d3, define(d3); else if (typeof module === "object" && module.exports) module.exports = d3; else this.d3 = d3;
 }();
 },{}],2:[function(require,module,exports){
-var School, Simulation, Student, colour, d3, display, gausian, head_start_1, head_start_2, height, relative_1, relative_2, render, sanity_check_1, sanity_check_2, shifting_averages, width;
+var School, Simulation, Student, colour, d3, display, gausian, head_start_1, head_start_2, height, randomly_assign, relative_1, relative_2, render, sanity_check_1, sanity_check_2, shifting_averages, width;
 
 Student = (function() {
   function Student() {
@@ -9576,8 +9576,6 @@ School = (function() {
 })();
 
 Simulation = (function() {
-  var assign;
-
   function Simulation(profile) {
     var i, id, results, school;
     this.profile = profile;
@@ -9599,24 +9597,11 @@ Simulation = (function() {
       return function() {
         var student;
         student = new Student();
-        student.school = assign(student, _this.schools, _this.profile.skew);
+        student.school = randomly_assign(student, _this.schools, _this.profile.skew);
         return student;
       };
     })(this));
   }
-
-  assign = function(student, schools, skew) {
-    var first, ref, second;
-    if (skew == null) {
-      skew = 0.5;
-    }
-    ref = student.achievement > 0.5 ? [0, 1] : [1, 0], first = ref[0], second = ref[1];
-    if (Math.random() < skew) {
-      return schools[first];
-    } else {
-      return schools[second];
-    }
-  };
 
   return Simulation;
 
@@ -9629,17 +9614,12 @@ Simulation.prototype.tick = function() {
 };
 
 Simulation.prototype.teach = function() {
+  var transference;
+  transference = 0.2;
   return this.students.forEach(function(student) {
-    return student.learn();
+    student.achievement = student.achievement * (student.school.impact * transference + 1);
+    return student.achievement = Math.min(student.achievement, 1.0);
   });
-};
-
-Student.prototype.learn = function(transference) {
-  if (transference == null) {
-    transference = 0.2;
-  }
-  this.achievement = this.achievement * (this.school.impact * transference + 1);
-  return this.achievement = Math.min(this.achievement, 1.0);
 };
 
 Simulation.prototype.graduate = function(graduation_rate) {
@@ -9764,6 +9744,19 @@ head_start_2 = {
   ],
   selectivity: 0.75,
   skew: 0.75
+};
+
+randomly_assign = function(student, schools, skew) {
+  var first, ref, second;
+  if (skew == null) {
+    skew = 0.5;
+  }
+  ref = student.achievement > 0.5 ? [0, 1] : [1, 0], first = ref[0], second = ref[1];
+  if (Math.random() < skew) {
+    return schools[first];
+  } else {
+    return schools[second];
+  }
 };
 
 d3 = require('d3');

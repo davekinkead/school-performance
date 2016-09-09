@@ -7,39 +7,42 @@ bibliography: /Users/dave/Dropbox/Research/readings/.library.bibtex
 csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
 ---
 
+!! Rewrite abstract !!
+
 > Most people would accept the claim that schooling somehow affects student achievement.  After all, as a society we invest significant amounts of time and money in various endeavours trying to measure exactly this.  Measuring the impact of schooling on student achievement however, faces a significant epistemic challenge.  Because we can't measure the causal impact of schooling on student achievement directly, we can't know this causal impact with certainty.  Instead, we _infer_ the causal impact of schooling on student achievement by way of proxy measures such as student results.  If student results improve, then we can _infer_ that some aspect of schooling _caused_ this...perhaps.
 
 > How warranted is this inference from student results to school performance?  With the aid of computer simulation, I investigate the robustness of this inference mechanism in a variety of common scenarios.  By eliminating errors and abstracting away confounders, computer simulation allows us to create the ideal conditions from which to assess the quality of this inference.
 
 > I show that under a variety of common scenarios, the inference from student results to school performance is not warranted - even under ideal conditions.  Because if we can't infer school performance reliably in ideal conditions, then we certainly can't do so in the non-ideal conditions of the real world.  This article advances the literature by demonstrating in inherent difficulty, and perhaps even pointlessness, of trying to infer _school performance from student results_.
 
+> With the aid of computer simulation, I develop a simple model of school performance in order to assess how warranted the inference mechanism _from student results to school performance_ really is.  All possible confounders are abstracted away creating an 'ideal world' for assessing the quality of this inference mechanism.  I then demonstrate how a number of common education scenarios leads to a complete failure of the student results to school performance inference mechanism.  My argument is simple - if an inference is unreliable in an ideal setting, then it is certainly unreliable in a non-ideal setting.  Thus, if the conditions in this model are present in the real world, then we should be very sceptical inferring anything about school performance from student results.
 
-## Introduction
+## Motivation
 
-It seems obvious that schooling somehow affects student achievement.  However we measure the academic achievement of students - whether by _declarative knowledge_, the learning and appropriate recall of particular facts; or by _procedural knowledge_, the application of skill and know-how - few people, if any, would claim that school policies, pedagogy, and environment have _no_ causal impact on students.  After all, as a society we invest significant amounts of time and money in various endeavours like the National Assessment Program - Literacy and Numeracy (NAPLAN), Trends in International Mathematics and Science Study (TIMSS), and the Programme for International Student Assessment (PISA), trying to measure exactly this.
+Let's begin with a simple claim, one that I hope is incontrovertible -- that education is important.  I take this to be so beyond dispute that I wont labour the point here.  Now let's add to this another hopefully incontrovertible claim -- that schooling somehow affects student results.  However we measure the academic achievement of students -- whether by _declarative knowledge_, the learning and appropriate recall of particular facts; or by _procedural knowledge_, the application of skill and know-how -- few people, if any, would claim that school policies, pedagogy, and environment have _no_ causal impact on students.  
 
-Measuring school performance is therefore very important.  Parents want to know which school will best educate their children; principals want to know if their leadership makes a difference; politicians and bureaucrats want to know if their policies work.  To do this, we use a range of metrics: Standardised literacy and numeracy tests like NAPLAN; the Peabody Picture Vocabulary Test [@dunn1965]; IQ scores or the Wechsler Intelligence Scale for Children (WISC-IV) [@wechsler2003].  None of these assessments however, measure school performance directly.  Instead, they rely on a proxy measure - student results - to _infer_ school performance.  Thus, when student results improve, we can _infer_ that some aspect of schooling _caused_ this; that _school performance_ has improved [^def-performance].  
+So it follows that measuring school performance is rather important.  Parents want to know which school will best educate their children; principals want to know if their leadership makes a difference; politicians and bureaucrats want to know if their policies work and public resources are invested appropriately.  As a society we invest significant amounts of time and money in various endeavours like the National Assessment Program - Literacy and Numeracy (NAPLAN), Trends in International Mathematics and Science Study (TIMSS), and the Programme for International Student Assessment (PISA), trying to measure exactly this.
+
+To do this, we use a range of metrics: Standardised literacy and numeracy tests like NAPLAN; the Peabody Picture Vocabulary Test [@dunn1965]; IQ scores or the Wechsler Intelligence Scale for Children (WISC-IV) [@wechsler2003].  None of these assessments however, measure school performance directly.  Instead, they rely on a proxy measure - student results - to _infer_ school performance.  Thus, when student results improve, we can _infer_ that some aspect of schooling _caused_ this; that _school performance_ has improved [^def-performance].  
 
 Perhaps.
 
 [^def-performance]: I use the term _school performance_ here to broadly describe the causal impact that pedagogy, education policy, or even build environment has on student acheivement.
 
-Accurately measuring school performance this way is hard.  The challenges associated with inferring school performance from student results have long been documented [@coleman1970]. Ecological models, for example, stress the important role non-school factors like family and neighbourhood have on student performance [@bronfenbrenner1994, @zubrick2000].  Further clouding our understanding are the often competing causal theories that attempt to explain how schools affect student achievement - peer effect [@hanushek2003], class size policies [@ehrenberg2001], or teacher training and qualifications [@kosgei2013].  How, and to what degree, schools themselves impact student achievement remains an open question. How much the changes in student results can be attributed to school performance is, therefore, also uncertain.  
+Accurately measuring school performance by proxies however, is hard.  The challenges associated with inferring school performance from student results have long been documented [@coleman1970]. Ecological models, for example, stress the important role non-school factors like family and neighbourhood have on student performance [@bronfenbrenner1994, @zubrick2000].  Further clouding our understanding are the often competing causal theories that attempt to explain how schools affect student achievement - peer effect [@hanushek2003], class size policies [@ehrenberg2001], or teacher training and qualifications [@kosgei2013].  How and to what degree schools themselves impact student achievement remains an open question. How much the changes in student results can be attributed to school performance is therefore, also uncertain.  
 
-With the aid of computer simulation, I develop a simple model of school performance in order to assess how warranted the inference mechanism _from student results to school performance_ really is.  All possible confounders are abstracted away creating an 'ideal world' for assessing the quality of this inference mechanism.  I then demonstrate how a number of common education scenarios leads to a complete failure of the student results to school performance inference mechanism.  My argument is simple - if an inference is unreliable in an ideal setting, then it is certainly unreliable in a non-ideal setting.  Thus, if the conditions in this model are present in the real world, then we should be very sceptical inferring anything about school performance from student results.
+Measuring school performance is hard because measuring causation is hard.  The limits of causal knowledge have been well documented in science and philosophy.  Causation cannot be observed directly -- it can't be seen, heard, or touched.  Neither can it be known _a priori_.  Causal claims might be true or false, but they are never contradictory [@hume1748 §4.2.16].  Instead, causal connections must be _inferred_ from their observable, posited effects.  In order to discover the causes of effects, we try to hold all but a few variables fixed, and observe the covariance between them in order to identify causality.  In complex systems accurate causal inferences are especially challenging.  Common causes, feedback loops, under-determination, over-determination, and causal indeterminacy all strain the certainty of our inference mechanisms despite the best controls, protocols, and experimental design we might put in place.  
 
+Causal inference is difficult.  Inferring the causal impact of schools on students acheivement in a complex education system with multiple confounders is especially difficult.  Yet infer it we must.  The question this raises then, is _just how warranted is this inference from student results to school performance_?  
 
-## Motivation & Methodology
-
-Accurately measuring school performance is hard.  The limits of causal knowledge are well known in science and philosophy.  Causation cannot be observed directly - it can't be seen, heard, or touched.  Neither can it be known _a priori_.  Causal claims might be true or false, but they are never contradictory [@hume1748 §4.2.16].  Instead, causal connections must be _inferred_ from their observable, posited effects.  In order to discover the causes of effects, we try to hold all but a few variables fixed, and observe the covariance between them in order to identify causality.
-
-In complex systems accurate causal inferences are especially challenging.  Common causes, feedback loops, under-determination, over-determination, and causal indeterminacy all strain the certainty of our inference mechanisms despite the best controls, protocols, and experimental design we might put in place.  Causal inference is difficult.  Inferring the causal impact of schools on students in a complex education system with multiple confounders is especially difficult.
-
-So just how warranted is this inference from student results to school performance?  In some scenarios, inferring school performance from student results might be perfectly justified.  Changes in student results might be largely or even wholly explainable by a school's causal impact.  In many other scenarios however, we might have serious grounds for scepticism.  Confounders such as parental age and socio-economic status [@caro2009], birth weight, neighborhood characteristics [@nghiem2015], or even a student's breakfast consumption [@adolphus2013] might explain a great deal about differences in student results.
+In some scenarios, inferring school performance from student results might be perfectly justified.  Changes in student results might be largely or even wholly explainable by a school's causal impact.  In many other scenarios however, we might have serious grounds for scepticism.  Confounders such as parental age and socio-economic status [@caro2009], birth weight, neighborhood characteristics [@nghiem2015], or even a student's breakfast consumption [@adolphus2013] might explain a great deal about differences in student results.
 
 If inferring from observable effects to their causes is difficult, then judging the quality of the inference mechanism is even harder.  Doing so requires some standard against which we can make comparisons but our knowledge of this standard is limited by the same problem of inference.  How can we judge the quality of the inference from student results to school performance if we can't be certain what is the cause of student results in the first place?  We lack the epistemological foundations to properly ground our second order judgements.
 
-Computer simulation however, offers us one way out of this problem. Simulation allows us to not only model how we think the world _is_, but to also stipulate how we think the world _should be_.  It allows us to know the causal relationships _within_ the model with certainty because they are explicitly stipulated in code _ex ante_.  With causality known, we can then observe the empiric data the simulation generates and assess the quality of the inference mechanism. We can judge how good the inference mechanism from student results to school performance really is - in our model at least.
+
+## Methodology
+
+Computer simulation offers us one way out of this problem. Simulation allows us to not only model how we think the world _is_, but to also stipulate how we think the world _should be_.  It allows us to know the causal relationships _within_ the model with certainty because they are explicitly stipulated in code _ex ante_.  With causality known, we can then observe the empiric data the simulation generates and assess the quality of the inference mechanism. We can judge how good the inference mechanism from student results to school performance really is - in our model at least.
 
 The purpose of this simulation is not to explain or predict the real world but to create a yard stick by which we can judge our causal inferences in the real world.  The model simplifies and abstracts away all possible confounding causes of student performance.  Importantly, it eliminates any errors when measuring student performance and stipulates that schooling is the _only_ cause of changes in student performance [^note-only].  This creates ideal conditions for assessing the quality of our second order judgements.
 
@@ -54,7 +57,7 @@ I make no assumptions about the reader's knowledge of computer programming.  Cod
 
 ## A Model of School Performance
 
-We begin by modelling students.  Students have a level of academic achievement measured from a minimum of `0.0` to a maximum of `1.0`.  Academic achievement is broadly construed and can be interpreted as any attribute of value that can be influenced by schooling.  This achievement is uniformly randomly generated and is centred around a stipulated mean of `0.5`.
+We begin by modelling students.  Students have a level of academic achievement measured from a minimum of `0.0` to a maximum of `1.0`.  Academic achievement is broadly construed and can be interpreted as any attribute of value that can be influenced by schooling.  This achievement is randomly generated with a uniform distribution and is centred around a mean of `0.5`.
 
 
     class Student
@@ -62,14 +65,14 @@ We begin by modelling students.  Students have a level of academic achievement m
         @achievement = Math.random()
 
 
-Next we model schools.  Schools are collections of students upon whose acheivement they causally impact.  In short, schools teach students.  The causal impact of a school on a student's academic performance ranges from `-1.0` (strong negative impact) to `1.0` (strong positive impact).  This impact is the same for all students and is fixed for the duration of the simulation.  Again, no claim is made about how educational impact is transmitted to student achievement in the real world.  Policy, pedagogy, or the school environment are all possible causal mechanisms compatible with this model.  The key stipulation is that `impact` is the _only_ causal mechanism at work.
+Next we model schools.  Schools are collections of students upon whose acheivement they causally impact.  In short, _schools teach students_.  The causal impact of a school on a student's academic performance ranges from `-1.0` (a strong negative impact) to `1.0` (a strong positive impact).  This impact is the same for all students and is fixed for the duration of the simulation.  Again, no claim is made about how educational impact is transmitted to student achievement in the real world.  Policy, pedagogy, or the school environment are all possible causal mechanisms compatible with this model.  The key stipulation is that `impact` is the _only_ causal mechanism at work.
 
 
     class School
       constructor: (@id, @impact) ->
 
 
-Finally, we create a class to encapsulate the simulation itself.  We construct the simulation with a profile containing information about schools and student distribution.  We then create 1000 students of random achievement and assign them in the schools according to the simulation profile.
+Finally, we create a class to encapsulate the simulation itself.  We will construct each simulations with a profile describing the desired attributes of the schools and student distribution.  We then create 1000 students of random achievement and assign them in the schools according to the stipulated profile.  The initial assignment of students between schools is determined by a skew factor ranging from `0.0` (all students of below average achievement are in the first school) to `1.0` (all students of above average achievement students are in the first school).  The default value of `0.5` results in an even distribution of students by achievement.  Subsequent enrolments will be random.
 
 
     class Simulation
@@ -78,16 +81,8 @@ Finally, we create a class to encapsulate the simulation itself.  We construct t
           new School(id, school.impact)
         @students = [1..1000].map () =>
           student = new Student()
-          student.school = assign student, @schools, @profile.skew
+          student.school = randomly_assign(student, @schools, @profile.skew)
           student
-
-
-The initial assignment of students between schools is determined by a skew factor ranging from `0.0` (all students of below average achievement are in the first school) to `1.0` (all students of above average achievement students are in the first school).  The default value of `0.5` results in an even distribution of students by achievement.  Subsequent enrolments will be random.
-
-
-      assign = (student, schools, skew=0.5) ->
-        [first, second] = if student.achievement > 0.5 then [0,1] else [1,0]
-        if Math.random() < skew then schools[first] else schools[second]
 
 
 Events in the simulation will occur during a generic time period called a `tick`.  A tick can represent any fixed period of time such as a term, semester, or year.  During each tick schools will `teach` students, some students will `graduate`, and some new students will `enrol`.
@@ -99,23 +94,17 @@ Events in the simulation will occur during a generic time period called a `tick`
       @enrol()
 
 
-Schools causally impact students' achievement.  Schools teach and students learn.  Again, the actual causal mechanism the model describes could be a variety of influences such as pedagogy, policy, or classroom environment. 
+Schools causally impact a student's achievement.  Schools teach and students learn.  Again, the actual causal mechanism the model describes could be a variety of influences such as pedagogy, policy, or classroom environment.  As a non-ecological model however, schooling is the _only_ mechanism by which student achievement can change within the model.  The causal impact on student achievement is assumed to be linear and a constraint is applied to ensure achievement remains between `0.0` and `1.0`.
 
 
     Simulation::teach = () ->
-       @students.forEach (student) ->
-         student.learn()
+      transference=0.2
+      @students.forEach (student) ->
+        student.achievement = student.achievement * (student.school.impact * transference + 1)
+        student.achievement = Math.min student.achievement, 1.0
 
 
-As a non-ecological model however, schooling is the _only_ mechanism by which student achievement can change within the model.  The causal impact on student achievement is assumed to be linear and a constraint is applied to ensure achievement remains between `0.0` and `1.0`.
-
-
-    Student::learn = (transference=0.2) ->
-      @achievement = @achievement * (@school.impact * transference + 1)
-      @achievement = Math.min @achievement, 1.0
-
-
-During each tick, a percentage of students will graduate and be replaced by new students enrolling.
+During each tick, a percentage of students will graduate and be replaced by new students enrolling.  We will set the graduation rate at 20% per tick.
 
 
     Simulation::graduate = (graduation_rate=0.2) ->
@@ -318,6 +307,14 @@ This article is written in Literate Coffeescript.  Literate programming has a gr
 To build the simulation from the raw paper, download the project from [the repo](https://github.com/blind-review/school-performance) and type `make paper` in the command line.  Make sure you've got [Coffeescript](http://Coffeescript.org/) and [Pandoc](http://pandoc.org) installed first.
 
 Running a simulation with your own parameters is easy.  You just need to specify the parameters and call `display(target-location, parameters)` and add a target location in HTML `id="target-location"`
+
+The initial assignment of students between schools is determined by a skew factor ranging from `0.0` (all students of below average achievement are in the first school) to `1.0` (all students of above average achievement students are in the first school).  The default value of `0.5` results in an even distribution of students by achievement.  Subsequent enrolments will be random.
+
+
+    randomly_assign = (student, schools, skew=0.5) ->
+      [first, second] = if student.achievement > 0.5 then [0,1] else [1,0]
+      if Math.random() < skew then schools[first] else schools[second]
+
 
 ## Browser Code
 
