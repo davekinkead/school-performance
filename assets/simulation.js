@@ -9607,6 +9607,19 @@ Simulation = (function() {
 
 })();
 
+randomly_assign = function(student, schools, skew) {
+  var first, ref, second;
+  if (skew == null) {
+    skew = 0.5;
+  }
+  ref = student.achievement > 0.5 ? [0, 1] : [1, 0], first = ref[0], second = ref[1];
+  if (Math.random() < skew) {
+    return schools[first];
+  } else {
+    return schools[second];
+  }
+};
+
 Simulation.prototype.tick = function() {
   this.teach();
   this.graduate();
@@ -9744,19 +9757,6 @@ head_start_2 = {
   ],
   selectivity: 0.75,
   skew: 0.75
-};
-
-randomly_assign = function(student, schools, skew) {
-  var first, ref, second;
-  if (skew == null) {
-    skew = 0.5;
-  }
-  ref = student.achievement > 0.5 ? [0, 1] : [1, 0], first = ref[0], second = ref[1];
-  if (Math.random() < skew) {
-    return schools[first];
-  } else {
-    return schools[second];
-  }
 };
 
 d3 = require('d3');
