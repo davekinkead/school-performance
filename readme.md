@@ -2,9 +2,17 @@
 title: What does student performance tell us about school effectiveness?
 author: Dave Kinkead
 email: d.kinkead@uq.edu.au
-status: proof-of-concept
+status: abstract
 license: CC BY SA
 ---
+
+Thesis: The presence of choice in a school system undermines the inference from student acheivement to school performance
+
+- there's 2 ways to measure school performance with student results being the most common (its easy)
+- in certain circumstances this inference is warranted.
+- when we introduce school choice however, the inference mechanism fails.
+- conc: you cant measure school performance from student acheivement when school choice is available.
+
 
 # What does student performance tell us about school effectiveness?
 

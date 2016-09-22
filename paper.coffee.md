@@ -1,46 +1,48 @@
 ---
-title: What can student achievement tell us about school performance?
+title: How does school choice affect school performance?
 author: Dave Kinkead
 email: d.kinkead@uq.edu.au
-status: JPS Submission
+status: EPAT Submission
 bibliography: /Users/dave/Dropbox/Research/readings/.library.bibtex
 ---
 
-# Don't judge school performance by student achievement
+Over the last decade, measuring school performance has become the activity _de rigueur_ for those in charge of our education systems.  Both nationally and internationally, most OECD countries have some metric -- Adequate Yearly Progress (AYP) of No Child Left Behind (NCLB), Progress 8 scores, National Assessment Program - Literacy and Numeracy (NAPLAN), Trends in International Mathematics and Science Study (TIMSS), and the Programme for International Student Assessment (PISA).
 
-Over the last decade, measuring school performance has become the activity _de rigueur_ for those in charge of our education systems.  And why shouldn't it be?  Quality education is the key source of human capital, a critical driver of a country's international competitiveness in a global knowledge economy, and perhaps more importantly -- essential for a properly functioning society.  
+And why shouldn't it be?  Quality education is a key source of human capital, a critical driver of a country's international competitiveness in a global knowledge economy, and perhaps more importantly -- essential for a properly functioning society.  Every year we spend billions of dollars, pounds, and yuan in educating our children in kindergarten, school, and university, with much of this investment publicly funded.  Ensuring that scarce public funds are well spent therefore, becomes a moral requirement.  And even if we were to escape the shackles of a neo-liberal mania that sees our schools as objects to be managed by market forces and somehow find ourselves in a socialist utopia of near limitless resources, we'd still want to know how well our schools are educating our children.  Regardless of your ideological persuasion, measuring school performance is important [^def-performance].
 
-Every year we spend billions of dollars, pounds, and yuan in educational endeavours from kindergarten to university, with much of this investment publicly funded.  So ensuring that scarce public funds are well spent is important.  And even if we were to escape the shackles of a neo-liberal mania that sees our schools as objects to be managed by a market forces and find ourselves in a socialist utopia of near limitless resources, we'd still want to know how well our schools are educating our children.  Regardless of your ideological persuasion, measuring school performance is important.
+[^def-performance]: I use the term _school performance_ here to broadly describe the causal impact that pedagogy, education policy, or even build environment has on student achievement.
 
-Despite its popularity, measuring school performance isn't easy.  Broadly speaking, we can measure school performance by the things schools do -- the practices, pedagogies, and processes they apply -- or by the things schools produce -- the academic achievement of students, university or employment placement, or well-rounded human beings.  Of these measures, the latter is the most prevalent, especially via standardised literacy and numeracy tests.
+Yet despite its popularity, measuring school performance isn't easy.  Broadly speaking, we can measure school performance in two ways: by the things schools do -- the practices, pedagogies, and processes they apply; or by the things schools produce -- the academic achievement of students, university or employment placement, or even perhaps by the quality of well-rounded citizens they produce.  Of these measures however, it is the latter that has come the most prevalent, especially via standardised literacy and numeracy tests.
 
-Measuring school performance by student achievement however, faces a significant epistemic challenge.  The relationship between schooling and student outcomes is a causal one.  Because we can't measure the causal impact of schooling on student achievement directly, we can't know this causal impact with certainty.  Instead, we _infer_ the causal impact of schooling on student achievement by way of proxy measures such as standardised student test scores.  If student achievement improve, then we can _infer_ that some aspect of schooling _caused_ this.
-
-Just how warranted is this inference from student achievement to school performance?  With the aid of computer simulation, I develop a simple model of school performance in order to investigate the robustness of this inference mechanism.  By eliminating errors and abstracting away confounders, computer simulation allows us to create the ideal conditions from which to assess the quality of this inference.
-
-I then demonstrate how a number of common education scenarios leads to a complete failure of the student achievement to school performance inference mechanism.  My argument is simple - if an inference is unreliable in an ideal setting, then it is certainly unreliable in a non-ideal setting.  Thus, if the conditions in this model are present in the real world, then we should be very sceptical inferring anything about school performance from student achievement.
-
-
-## Motivation
-
-Let's begin with a simple claim, one that I hope is incontrovertible -- that education is important.  I take this to be so beyond doubt that I wont press the point here.  Now let's add to this another hopefully incontrovertible claim -- that schooling somehow affects student achievement.  However we measure the academic achievement of students -- whether by _declarative knowledge_, the learning and appropriate recall of particular facts; or by _procedural knowledge_, the application of skill and know-how -- few people, if any, would claim that school policies, pedagogy, and environment have _no_ causal impact on students.  
-
-So it follows that measuring school performance is rather important.  Parents want to know which school will best educate their children; principals want to know if their leadership makes a difference; politicians and bureaucrats want to know if their policies work and public resources are invested appropriately.  After all, as a society we invest significant amounts of time and money in various measuring activities like the National Assessment Program - Literacy and Numeracy (NAPLAN), Trends in International Mathematics and Science Study (TIMSS), and the Programme for International Student Assessment (PISA), trying to measure exactly this.
-
----> not happy with distinction between school measurement and student measurement.
-
-
-To do this, we use a range of metrics: Standardised literacy and numeracy tests like NAPLAN; the Peabody Picture Vocabulary Test [@dunn1965]; IQ scores or the Wechsler Intelligence Scale for Children (WISC-IV) [@wechsler2003].  None of these assessments however, measure school performance directly.  Instead, they rely on a proxy measure - student achievement - to _infer_ school performance.  Thus, when student achievement improve, we can _infer_ that some aspect of schooling _caused_ this; that _school performance_ has improved [^def-performance].  
+Measuring school performance by student achievement however, faces a significant epistemic challenge.  The relationship between schooling and student outcomes is a causal one.  Because we can't measure the causal impact of schooling on student achievement directly, we can't know this causal impact with certainty.  Instead, we must _infer_ the causal impact of schooling on student achievement by way of proxy measures such as standardised student test scores.  If student achievement improve, then we can _infer_ that some aspect of schooling _caused_ this.
 
 Perhaps.
 
-[^def-performance]: I use the term _school performance_ here to broadly describe the causal impact that pedagogy, education policy, or even build environment has on student achievement.
+Just how warranted is this inference from student achievement to school performance?  The challenges associated with inferring school performance from student achievement have long been documented [@coleman1970] yet this methods remains popular.  This is understandable - measuring school performance via student acheivement is certainly easier than assessing fidelity with particular practices and in some circumstances, the inference is warranted.  But when school choice is available, whether by giving families a choice in the school their children attend or schools admitting students selectively, the inference from student acheivement to school performance breaks down.
+
+Using computer simulation, I develop a simple model in order to investigate the robustness of the inference from student achievement to school performance.  I then demonstrate how the introduction of school choice leads to a complete failure of inference mechanism.  My argument is simple - if an inference is unreliable in an ideal setting, then it is certainly unreliable in a non-ideal setting.  By eliminating measurement errors and abstracting away confounders, computer simulation allows us to create the ideal conditions from which to assess the quality of this inference.  Thus, if the conditions in this model are present in the real world, then we should be very sceptical inferring anything about school performance from student achievement.
+
+
+## Measuring School Performance
+
+There are a variety of ways we might measure school performance.  One way is to _measure the things schools do_ -- the practices, pedagogies, and processes they apply.  If their application of a process is faithful to some standard, then we might judge them to be performing well.  If not, then we judge them poorly.  But a more common approach is to _measure the things schools produce_ -- how many students qualified for university, how many found well paying jobs, or especially how well students performed in tests.
+
+However we measure the academic achievement of students -- whether by _declarative knowledge_, the learning and appropriate recall of particular facts; or by _procedural knowledge_, the application of skill and know-how -- few people, if any, would claim that school policies, pedagogy, and environment have _no_ causal impact on student outcomes.  To do this, we use a range of metrics depending on the student achievement of interest -- Standardised literacy and numeracy tests like NAPLAN; the Peabody Picture Vocabulary Test [@dunn1965]; IQ scores or the Wechsler Intelligence Scale for Children (WISC-IV) [@wechsler2003].  
+
+Yet these metrics are just proxies for 
+
 
 Accurately measuring school performance by proxies however, is hard.  The challenges associated with inferring school performance from student achievement have long been documented [@coleman1970]. Ecological models, for example, stress the important role non-school factors like family and neighbourhood have on student performance [@bronfenbrenner1994, @zubrick2000].  Further clouding our understanding are the often competing causal theories that attempt to explain how schools affect student achievement - peer effect [@hanushek2003], class size policies [@ehrenberg2001], or teacher training and qualifications [@kosgei2013].  How and to what degree schools themselves impact student achievement remains an open question. How much the changes in student achievement can be attributed to school performance is therefore, also uncertain.  
 
 Measuring school performance is hard because measuring causation is hard.  The limits of causal knowledge have been well documented in science and philosophy.  Causation cannot be observed directly -- it can't be seen, heard, or touched.  Neither can it be known _a priori_.  Causal claims might be true or false, but they are never contradictory [@hume1748 §4.2.16].  Instead, causal connections must be _inferred_ from their observable, posited effects.  In order to discover the causes of effects, we try to hold all but a few variables fixed, and observe the covariance between them in order to identify causality.  In complex systems accurate causal inferences are especially challenging.  Common causes, feedback loops, under-determination, over-determination, and causal indeterminacy all strain the certainty of our inference mechanisms despite the best controls, protocols, and experimental design we might put in place.  
 
+
+
 Causal inference is difficult.  Inferring the causal impact of a school on student achievement in a complex education system with multiple confounders is especially difficult.  Yet infer it we must.  The question this raises then, is _just how warranted is this inference from student achievement to school performance_?  
+
+
+Yet none of these assessments however, measure school performance directly.  Instead, they rely on a proxy measure - student achievement - to _infer_ school performance.  Thus, when student achievement improve, we can _infer_ that some aspect of schooling _caused_ this; that _school performance_ has improved.  
+
 
 In some scenarios, inferring school performance from student achievement might be perfectly justified.  Changes in student achievement might be largely or even wholly explainable by a school's causal impact.  In these instances, when students results improve, we can justifiably say that because the school's causal impact is largely responsible, the school performance has improved.  In many other scenarios however, we might have serious grounds for scepticism.  Confounders such as parental age and socio-economic status [@caro2009], birth weight, neighbourhood characteristics [@nghiem2015], or even a student's breakfast consumption [@adolphus2013] might explain a great deal about differences in student achievement.  In these cases, when the extent of a school's causal impact is uncertain, then we should question whether we can infer anything at all about school performance from changes in student achievement.
 
