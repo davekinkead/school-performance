@@ -24,7 +24,9 @@ Perhaps.
 
 Just how warranted is this inference from student achievement to school performance?  The challenges associated with inferring school performance from student achievement have long been documented [@coleman1970] yet this methods remains popular.  This is understandable - measuring school performance via student acheivement is certainly easier than assessing fidelity with particular practices and in some circumstances, the inference is warranted.  But when school choice is available, whether by giving families a choice in the school their children attend or schools admitting students selectively, the inference from student acheivement to school performance breaks down.
 
-Using computer simulation, I develop a simple model in order to investigate the robustness of the inference from student achievement to school performance.  I then demonstrate how the introduction of school choice leads to a complete failure of inference mechanism.  My argument is simple - if an inference is unreliable in an ideal setting, then it is certainly unreliable in a non-ideal setting.  By eliminating measurement errors and abstracting away confounders, computer simulation allows us to create the ideal conditions from which to assess the quality of this inference.  Thus, if the conditions in this model are present in the real world, then we should be very sceptical inferring anything about school performance from student achievement.
+Using computer simulation, I develop a simple model in order to investigate the robustness of the inference from student achievement to school performance.  I then demonstrate how the introduction of school choice leads to a complete failure of inference mechanism.  My argument is simple - _if an inference is unreliable in an ideal setting, then it is certainly unreliable in a non-ideal one_.  By eliminating measurement errors and abstracting away confounders, computer simulation allows us to create the ideal conditions from which to assess the quality of this inference.  Thus, if the conditions in this model are present in the real world, then we should be very sceptical inferring anything about school performance from student achievement.
+
+If the conditions of the computer model are present in real life, if school choice is available, then we should be very skeptical of infering anything about school performance from student achievement.
 
 
 ## Measuring School Performance
@@ -48,7 +50,7 @@ This is a problem that empiric approaches cannot overcome. If we are to use empi
 
 ## Methodology
 
-Computer simulation offers us one way out of this problem. Simulation allows us to not only model how we think the world _is_, but to also stipulate how we think the world _should be_.  It allows us to know the causal relationships _within_ the model with certainty because they are explicitly stipulated in code _ex ante_.  With causality known by stipulation, we can then observe the empiric data the simulation generates and assess the quality of the inference mechanism. We can judge how good the inference mechanism from student achievement to school performance really is - in our model at least.
+Computer simulation offers us one way out of this problem. Simulation allows us to not only model how we think the world _is_, but to also specify how we think the world _should be_.  It allows us to know the causal relationships _within_ the model with certainty because they are explicitly stipulated in code _ex ante_.  With causality known by stipulation _a priori_, we can then observe the empiric data the simulation generates _a posteriori_ and assess the quality of the inference mechanism. We can judge how good the inference mechanism from student achievement to school performance really is - in our model at least.
 
 The purpose of this simulation is therefore not to explain or predict the real world but to create a yard stick by which we can judge our causal inferences in the real world.  The model simplifies and abstracts away all possible confounding causes of student performance.  Importantly, it eliminates any errors when measuring student performance and stipulates that schooling is the _only_ cause of changes in student performance [^note-only].  This creates ideal conditions for assessing the quality of our second order judgements - the inference from student achievement to school performances.
 
@@ -56,14 +58,18 @@ The purpose of this simulation is therefore not to explain or predict the real w
 
 Because the causal impact of a school on student achievement is known by stipulation, we can assess how accurately empiric data about student achievement maps to the stipulated causal impact of the school - to our belief about school performance.  If the inference mechanism from student result to school performance is warranted in the simulation when the causal mechanism is known by stipulation, then we have some grounds to be confident about the inference mechanism in the real world, additional confounders not withstanding.  _But if the inference isn't warranted when the causal mechanism is known, then it can't be warranted when the causal mechanism is unknown._  This simulation will therefore allow us to say when the student result to school performance inference _might_ be warranted, and when it _cannot be_ warranted.
 
-As will become obvious shortly, this article is different from typically philosophical fare.  Written in [Literate Coffeescript](http://Coffeescript.org/), this article is simultaneously a philosophical argument and a computer simulation that demonstrates the claims of the argument.  Literate Programming [@knuth1984] involves embedding computer code within a written argument and has much to offer scholarly writing.  Firstly, it ensures that all assumptions of the model are explicit.  Computer programs are deterministic, so all the instructions necessary for the simulation to run have to be explicitly documented.  Literate Programming also allays concerns relating to validation and replication.  Often, simulations are 'black boxes' of code - opaque to the reader and reviewer alike.  Because all the code necessary for the running simulation is embedded in the article, replication is as simple as following the installation instructions in the appendix. 
+As will become obvious shortly, this article is different from typical philosophical fare.  Written in [Literate Coffeescript](http://Coffeescript.org/), this article is simultaneously a philosophical argument and a computer simulation that demonstrates the claims of the argument.  Literate Programming [@knuth1984] involves embedding computer code within a written argument and has much to offer scholarly writing.  Firstly, it ensures that all assumptions of the model are explicit.  Computer programs are deterministic, so all the instructions necessary for the simulation to run have to be explicitly documented.  Secondly, it allays concerns often directed at simulation -- the challenges of validation and replication.  Often, simulations are 'black boxes' of code - opaque to the reader and reviewer alike.  Because all the code necessary for the running simulation is embedded in the article, replication is as simple as following the installation instructions in the appendix.  
+
+Lastly, it enhances the persuasiveness of argument.  Compared to traditional static argument, the dynamic simulation offered in this paper allows the reader to experience the argument evolve from intial definitions as more premises are added.  This is especially useful when dealing with counter intuitive results that might require considerable concentratio and reflection to accept [^persuasiveness].
+
+[^persuasiveness]: This is not to say that persuasion should trump logical entailment but that a persuasive and valid argument is better than a valid one alone.  @kahneman2011 (p9) for example attributes the broad appeal of his and Tversky's work on heuristics biases to the inclusion of demonstrations that the reader could experience themself.
 
 I make no assumptions about the reader's knowledge of computer programming.  Code is indicated by `monospace font and indented blocks`, is written to be as informative as possible, and is fully described in the surrounding text.  Any code that is not germane to the argument itself has been placed in the appendix. Coffeescript is used because it runs in any modern web browser and has a syntax close to natural language.  Best viewed in HTML at [http://blind-review.github.io/school-performance/](http://blind-review.github.io/school-performance/) to take advantage of the interactive visualisations, a static but less engaging version of this article is available in PDF or print.
 
 
 ## A Model of School Performance
 
-We begin by modelling students.  Students have a level of academic achievement measured from a minimum of `0.0` to a maximum of `1.0`.  Academic achievement is broadly construed and can be interpreted as any attribute of value that can be influenced by schooling.  This achievement is randomly generated with a uniform distribution and is centred around a mean of `0.5`.
+We begin by defining a model of students.  Students have a level of academic achievement measured from a minimum of `0.0` to a maximum of `1.0`.  Academic achievement is broadly construed and can be interpreted as any attribute of value that can be influenced by schooling.  This achievement is randomly generated with a uniform distribution and is centred around a mean of `0.5`.
 
 
     class Student
@@ -316,16 +322,16 @@ The impact of student intake and composition has long been acknowledged to play 
 
 # Appendix
 
-This article is written in Literate Coffeescript.  Literate programming has a great deal to offer the humanities, not least of which is that it makes replication available to all readers.  
-
-To build the simulation from the raw paper, download the project from [the repo](https://github.com/blind-review/school-performance) and type `make paper` in the command line.  Make sure you've got [Coffeescript](http://Coffeescript.org/) and [Pandoc](http://pandoc.org) installed first.
+This article is written in Literate Coffeescript.  Literate programming has a great deal to offer the humanities, not least of which is that it makes replication available to all readers.  To build the simulation from the raw paper, download the project from [the repo](https://github.com/blind-review/school-performance) and type `make paper` in the command line.  Make sure you've got [Coffeescript](http://Coffeescript.org/) and [Pandoc](http://pandoc.org) installed first.
 
 Running a simulation with your own parameters is easy.  You just need to specify the parameters and call `display(target-location, parameters)` and add a target location in HTML `id="target-location"`
 
 
 ## Browser Code
 
-Much of the browser code required in this simulation is not germane to the argument and so has been extracted to the appendix.  To make things look pretty, we will use the [D3.js library](http://d3js.org/) by Mike Bostock.  We will also set some global variables from the browser such as height and width.
+Much of the browser code required in this simulation is not germane to the argument and so has been extracted here to the appendix.  It provided here so that the entire simulation is self contained within the paper itself.  
+
+To make things look pretty, we will use the [D3.js data visualisation library](http://d3js.org/) by Mike Bostock.  We will also set some global variables from the browser such as height and width.
 
 
     d3      = require 'd3'
@@ -333,7 +339,7 @@ Much of the browser code required in this simulation is not germane to the argum
     height  = width * 0.4
 
 
-We will be running multiple simulations in the browser so will need a way of creating different ones.  Here we define a `display` method for creating a simulation and binding it to a canvas with click events.  When a simulation canvas is clicked, the interval runner starts and calls the `tick` method every 1000 milliseconds.
+Because we will be running multiple simulations in the browser, we will need a way of creating different ones.  Here we define a `display` method for creating a simulation and binding it to a canvas with click events.  When a simulation canvas is clicked, the interval runner starts and calls the `tick` method every 1000 milliseconds.
 
 
     display = (id, params) =>
