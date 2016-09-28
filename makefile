@@ -31,7 +31,7 @@ paper:
 	@cat body sim assets/analytics.js tail > index.html
 	@rm  body sim tail css
 	
-	@# Checkout the gh-pages branch
+	@# Add the html to gh-pages branch
 	@git checkout gh-pages
 	@git checkout -p master index.html
 	@git commit -am "Build index.html"
