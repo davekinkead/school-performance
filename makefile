@@ -33,9 +33,10 @@ paper:
 	@rm  body sim tail css
 	
 	@# Commit and return to master
-	@git add index.html
-	git commit -am "Building HTML"
-	@git checkout master
+	git hash-object indext.html
+	# @git add index.html
+	# git commit -am "Building HTML"
+	# @git checkout maste
 
 	@echo ""
 	@echo "Build complete - open index.html in your browser"
