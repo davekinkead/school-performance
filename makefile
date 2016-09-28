@@ -2,8 +2,9 @@
 # Copyright Dave Kinkead (C) 2016
 #
 
+
 paper: 
-	@echo ""
+		@echo ""
 	@echo "What can student results tell us about school performance?"
 	@echo "  -- by Dave Kinkead, University of Queensland"
 	@echo "  -- contact the author via d.kinkead@uq.edu.au"
@@ -13,9 +14,7 @@ paper:
 	@# Create a location for the assets
 	@mkdir -p assets
 
-	@# Checkout the gh-pages branch
-	@git checkout gh-pages
-	@git rebase master
+
 	
 	@# Build the simulation
 	@browserify -t coffeeify paper.coffee.md > assets/simulation.js
@@ -32,9 +31,10 @@ paper:
 	@cat body sim assets/analytics.js tail > index.html
 	@rm  body sim tail css
 	
-	@# Commit and return to master
-	@git add index.html
-	@git commit -am "Building HTML"
+	@# Checkout the gh-pages branch
+	@git checkout gh-pages
+	@git checkout -p master index.html
+	@git commit -am "Build index.html"
 	@git checkout master
 
 	@echo ""
