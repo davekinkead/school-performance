@@ -2,7 +2,6 @@
 # Copyright Dave Kinkead (C) 2016
 #
 
-
 paper: 
 	@echo ""
 	@echo "What can student results tell us about school performance?"
@@ -14,8 +13,6 @@ paper:
 	@# Create a location for the assets
 	@mkdir -p assets
 
-
-	
 	@# Build the simulation
 	@browserify -t coffeeify paper.coffee.md > assets/simulation.js
 	
@@ -33,11 +30,3 @@ paper:
 	
 	@echo ""
 	@echo "Build complete - open index.html in your browser"
-
-publish:
-	@echo "Pushing to git..."
-	@git checkout gh-pages
-	@git merge master
-	@git checkout master
-	@git push github gh-pages
-	@git push github master

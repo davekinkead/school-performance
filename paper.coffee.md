@@ -6,8 +6,6 @@ status: EPAT Submission
 bibliography: /Users/dave/Dropbox/Research/readings/.library.bibtex
 ---
 
-test
-
 Over the last decade, measuring school performance has become the activity _de rigueur_ for those in charge of our education systems.  Parents want to know which school will best educate their children; principals want to know if their leadership makes a difference; politicians and bureaucrats want to know if their policies work and public resources are invested appropriately.  Today, most developed countries have some metric to do measure and compare school performance -- Adequate Yearly Progress (AYP) of No Child Left Behind (NCLB), Progress 8 scores, National Assessment Program - Literacy and Numeracy (NAPLAN), Trends in International Mathematics and Science Study (TIMSS), and the Programme for International Student Assessment (PISA).
 
 And why shouldn't it be?  Quality education is a key source of human capital, a critical driver of a country's international competitiveness in a global knowledge economy, and perhaps more importantly -- essential for a properly functioning society.  Every year we spend billions of dollars, pounds, and yuan in educating our children in kindergarten, school, and university, with much of this investment publicly funded.  
