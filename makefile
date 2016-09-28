@@ -4,7 +4,7 @@
 
 
 paper: 
-		@echo ""
+	@echo ""
 	@echo "What can student results tell us about school performance?"
 	@echo "  -- by Dave Kinkead, University of Queensland"
 	@echo "  -- contact the author via d.kinkead@uq.edu.au"
@@ -31,11 +31,13 @@ paper:
 	@cat body sim assets/analytics.js tail > index.html
 	@rm  body sim tail css
 	
-	@# Add the html to gh-pages branch
-	@git checkout gh-pages
-	@git checkout -p master index.html
-	@git commit -am "Build index.html"
-	@git checkout master
-
 	@echo ""
 	@echo "Build complete - open index.html in your browser"
+
+publish:
+	@echo "Pushing to git..."
+	@git checkout gh-pages
+	@git merge master
+	@git checkout master
+	@git push github gh-pages
+	@git push github master
