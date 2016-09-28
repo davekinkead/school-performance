@@ -15,7 +15,7 @@ paper:
 
 	@# Checkout the gh-pages branch
 	@git checkout gh-pages
-	@git merge master
+	@git rebase master
 	
 	@# Build the simulation
 	@browserify -t coffeeify paper.coffee.md > assets/simulation.js
