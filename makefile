@@ -12,6 +12,10 @@ paper:
 	
 	@# Create a location for the assets
 	@mkdir -p assets
+
+	@# Checkout the gh-pages branch
+	@git checkout gh-pages
+	@git merge master
 	
 	@# Build the simulation
 	@browserify -t coffeeify paper.coffee.md > assets/simulation.js
@@ -28,5 +32,9 @@ paper:
 	@cat body sim assets/analytics.js tail > index.html
 	@rm  body sim tail css
 	
+	@# Commit and return to master
+	@git add index.html
+	@git commit -am "Building HTML"
+
 	@echo ""
 	@echo "Build complete - open index.html in your browser"
