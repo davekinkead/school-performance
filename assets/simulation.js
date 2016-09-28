@@ -9755,7 +9755,7 @@ head_start_2 = {
       impact: 0.25
     }
   ],
-  selectivity: 0.75,
+  selectivity: 0.5,
   skew: 0.75
 };
 

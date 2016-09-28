@@ -46,9 +46,9 @@ In short, we can infer very little about school performance from student results
 
 ## TODO
 
-  - [] Extract browswer only code
-  - [] Tidy up simulation code
   - [] Click to start overlay
+  - [x] Extract browswer only code
+  - [x] Tidy up simulation code
   - [x] Add student initial distribtion function
   - [x] Fix simulation CSS position
   - [x] Add narrative outline
@@ -65,4 +65,3 @@ In short, we can infer very little about school performance from student results
   - Project Zero (Harvard Graduate School of Ed)
   - Swipe right for scholarship!
   - Michael Apple 9 Things for Critial Engagement
-  - 

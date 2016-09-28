@@ -296,9 +296,15 @@ figure input[type=range] {
 
 
 @media print {
+    html, body, .page {
+      height: 100%;
+      padding: 0;
+      margin: 0;
+  }
+
   body {
     overflow: auto; 
-    font-size: 12px;
+    /*font-size: 12px;*/
     padding: 0 1em;
   }
 
@@ -314,14 +320,14 @@ figure input[type=range] {
     page-break-inside: avoid; 
   }
 
-  #wrapper {
+/*  #wrapper {
     background: #fff;
-    color: #303030;
+    color: #666;
     font-size: 85%;
     padding: 10px;
     position: relative;
     text-indent: 0; 
-  } 
+  } */
 
   code {
     font-size: 10px;
@@ -333,7 +339,7 @@ figure input[type=range] {
     font-size: 10px;
   }
 
-  figure {
-    margin-left: -5em;
+  figure.simulation div {
+
   }
 }
