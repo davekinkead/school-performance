@@ -34,7 +34,7 @@ paper:
 	
 	@# Commit and return to master
 	@git add index.html
-	@git commit -am "Building HTML"
+	git commit -am "Building HTML"
 	@git checkout master
 
 	@echo ""
