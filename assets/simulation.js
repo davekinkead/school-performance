@@ -9770,7 +9770,7 @@ display = (function(_this) {
     var canvas, draw, runner, setup, simulation, tick;
     runner = false;
     simulation = new Simulation(params);
-    canvas = d3.select("#" + id).append("svg:svg").attr("height", Math.max(width * 0.4, height * 0.8)).attr("width", width).on("click", function() {
+    canvas = d3.select("#" + id).append("svg:svg").attr("height", "auto").attr("width", width).attr("preserveAspectRatio", "xMidYMid meet").attr("viewBox", "0 0 " + width + " " + (Math.max(width * 0.4, height * 0.8))).on("click", function() {
       if (runner) {
         clearInterval(runner);
         return runner = false;
