@@ -32,7 +32,6 @@ paper:
 	@echo "Build complete - open index.html in your browser"
 
 publish:
-	@git commit -am "Build index.html"
 	@git checkout gh-pages; git checkout master -- index.html
 	@git commit -am "Auto publish from master"
 	@git push github gh-pages
