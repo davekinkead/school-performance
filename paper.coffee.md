@@ -333,7 +333,7 @@ To make things look pretty, we will use the [D3.js data visualisation library](h
 
 
     d3      = require 'd3'
-    width   = window.innerWidth - 25 || 600
+    width   = window.innerWidth || 600
     height  = width * 0.4
 
 

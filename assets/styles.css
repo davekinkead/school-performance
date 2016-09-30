@@ -41,6 +41,7 @@ h1, h2, h3, h4, h5, h6, p, ul, pre, figcaption, .footnotes {
 }
 h1 {
   font-size: 2rem;
+  text-transform: capitalize;
 }
 h2 {
   font-size: 1.5rem;
@@ -99,57 +100,25 @@ hr {
 }
 
 @media print {
-    html, body, .page {
-      height: 100%;
-      padding: 0;
-      margin: 0;
+  * {
+    font-size: 14px;
+  }
+  body {
+    margin: 1cm 2cm;
+    text-align: justify;
   }
 
-  .simulation {
-    width: 100%;
+  h1, h2, h3, p {
+    font-family: "Times New Roman", serif;
+    margin: 1rem auto;
   }
-
   svg {
     max-width: 100%;
+    margin-top: -2rem;  }
+  figcaption {
+    margin-top: -2rem;
   }
-
-/*  body {
-    overflow: auto; 
-    padding: 0 1em;
+  .simulation {
+    page-break-inside: avoid;
   }
-
-  p {
-    line-height: 1.75em;
-  }
-
-  i {
-    font-weight: regular;
-  }
-
-  img, pre, blockquote, table, figure {
-    page-break-inside: avoid; 
-  }
-
-#wrapper {
-    background: #fff;
-    color: #666;
-    font-size: 85%;
-    padding: 10px;
-    position: relative;
-    text-indent: 0; 
-  } 
-
-  code {
-    font-size: 12px;
-    line-height: 1em;
-    border: none;
-  }
-
-  p code {
-    font-size: 12px;
-  }
-
-  figure.simulation div {
-
-  }*/
 }

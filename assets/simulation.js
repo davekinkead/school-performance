@@ -9761,7 +9761,7 @@ head_start_2 = {
 
 d3 = require('d3');
 
-width = window.innerWidth - 25 || 600;
+width = window.innerWidth || 600;
 
 height = width * 0.4;
 
