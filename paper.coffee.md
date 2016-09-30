@@ -347,8 +347,10 @@ Because we will be running multiple simulations in the browser, we will need a w
       simulation = new Simulation params
       canvas = d3.select("##{id}")
         .append("svg:svg")
-        .attr "height", Math.max(width * 0.4, height * 0.8)
+        .attr "height", "auto"
         .attr "width", width
+        .attr "preserveAspectRatio", "xMidYMid meet"
+        .attr "viewBox", "0 0 #{width} #{Math.max(width * 0.4, height * 0.8)}"
         .on "click", () ->
           if runner
             clearInterval runner

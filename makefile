@@ -14,8 +14,11 @@ paper:
 	@# Create a location for the assets
 	@mkdir -p assets
 
+<<<<<<< HEAD
 
 	
+=======
+>>>>>>> master
 	@# Build the simulation
 	@browserify -t coffeeify paper.coffee.md > assets/simulation.js
 	
