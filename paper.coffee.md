@@ -358,8 +358,8 @@ Because we will be running multiple simulations in the browser, we will need a w
               tick simulation
             , 1000
       canvas.append('text')
-        .attr "y", () -> height * .7
-        .attr "x", () -> width * .36
+        .attr "y", () -> height * .85
+        .attr "x", () -> width * .33
 
 
 In every tick cycle, we run call simulation's `teach` and `graduate` methods.  We then `render` the simulation to calculate the x & y coordinates for the students, and update the canvas.  

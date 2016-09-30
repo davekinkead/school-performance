@@ -114,9 +114,10 @@ hr {
   }
   svg {
     max-width: 100%;
-    margin-top: -2rem;  }
+    margin-top: -1rem;  
+  }
   figcaption {
-    margin-top: -2rem;
+    margin-top: -1rem;
   }
   .simulation {
     page-break-inside: avoid;

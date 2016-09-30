@@ -9781,9 +9781,9 @@ display = (function(_this) {
       }
     });
     canvas.append('text').attr("y", function() {
-      return height * .7;
+      return height * .85;
     }).attr("x", function() {
-      return width * .36;
+      return width * .33;
     });
     tick = function(simulation) {
       simulation.tick();
