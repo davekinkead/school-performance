@@ -127,9 +127,10 @@
     }
     svg {
       max-width: 100%;
-      margin-top: -2rem;  }
+      margin-top: -1rem;  
+    }
     figcaption {
-      margin-top: -2rem;
+      margin-top: -1rem;
     }
     .simulation {
       page-break-inside: avoid;
@@ -374,8 +375,8 @@ height  = width * 0.4</code></pre>
           tick simulation
         , 1000
   canvas.append(&#39;text&#39;)
-    .attr &quot;y&quot;, () -&gt; height * .7
-    .attr &quot;x&quot;, () -&gt; width * .36</code></pre>
+    .attr &quot;y&quot;, () -&gt; height * .85
+    .attr &quot;x&quot;, () -&gt; width * .33</code></pre>
 <p>In every tick cycle, we run call simulation's <code>teach</code> and <code>graduate</code> methods. We then <code>render</code> the simulation to calculate the x &amp; y coordinates for the students, and update the canvas.</p>
 <pre><code>  tick = (simulation) -&gt;
     simulation.tick()
@@ -10251,9 +10252,9 @@ display = (function(_this) {
       }
     });
     canvas.append('text').attr("y", function() {
-      return height * .7;
+      return height * .85;
     }).attr("x", function() {
-      return width * .36;
+      return width * .33;
     });
     tick = function(simulation) {
       simulation.tick();
