@@ -54,6 +54,7 @@
   }
   h1 {
     font-size: 2rem;
+    text-transform: capitalize;
   }
   h2 {
     font-size: 1.5rem;
@@ -112,59 +113,27 @@
   }
   
   @media print {
-      html, body, .page {
-        height: 100%;
-        padding: 0;
-        margin: 0;
+    * {
+      font-size: 14px;
+    }
+    body {
+      margin: 1cm 2cm;
+      text-align: justify;
     }
   
-    .simulation {
-      width: 100%;
+    h1, h2, h3, p {
+      font-family: "Times New Roman", serif;
+      margin: 1rem auto;
     }
-  
     svg {
       max-width: 100%;
+      margin-top: -2rem;  }
+    figcaption {
+      margin-top: -2rem;
     }
-  
-  /*  body {
-      overflow: auto; 
-      padding: 0 1em;
+    .simulation {
+      page-break-inside: avoid;
     }
-  
-    p {
-      line-height: 1.75em;
-    }
-  
-    i {
-      font-weight: regular;
-    }
-  
-    img, pre, blockquote, table, figure {
-      page-break-inside: avoid; 
-    }
-  
-  #wrapper {
-      background: #fff;
-      color: #666;
-      font-size: 85%;
-      padding: 10px;
-      position: relative;
-      text-indent: 0; 
-    } 
-  
-    code {
-      font-size: 12px;
-      line-height: 1em;
-      border: none;
-    }
-  
-    p code {
-      font-size: 12px;
-    }
-  
-    figure.simulation div {
-  
-    }*/
   }</style>
 </head>
 <body>
@@ -384,7 +353,7 @@ Simulation 7: Mixed impact with skew and selection.
 <p>Much of the browser code required in this simulation is not germane to the argument and so has been extracted here to the appendix. It provided here so that the entire simulation is self contained within the paper itself.</p>
 <p>To make things look pretty, we will use the <a href="http://d3js.org/">D3.js data visualisation library</a> by Mike Bostock. We will also set some global variables from the browser such as height and width.</p>
 <pre><code>d3      = require &#39;d3&#39;
-width   = window.innerWidth - 25 || 600
+width   = window.innerWidth || 600
 height  = width * 0.4</code></pre>
 <p>Because we will be running multiple simulations in the browser, we will need a way of creating different ones. Here we define a <code>display</code> method for creating a simulation and binding it to a canvas with click events. When a simulation canvas is clicked, the interval runner starts and calls the <code>tick</code> method every 1000 milliseconds.</p>
 <pre><code>display = (id, params) =&gt;
@@ -10262,7 +10231,7 @@ head_start_2 = {
 
 d3 = require('d3');
 
-width = window.innerWidth - 25 || 600;
+width = window.innerWidth || 600;
 
 height = width * 0.4;
 
