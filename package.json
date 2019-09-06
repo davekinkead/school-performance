@@ -1,6 +1,6 @@
 {
   "name": "school-performance",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "An argument for skepticism about school performance measures.",
   "author": "Dave Kinkead <d.kinkead@uq.edu.au>",
   "dependencies": {

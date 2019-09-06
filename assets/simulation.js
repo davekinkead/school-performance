@@ -1,7 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 !function() {
   var d3 = {
-    version: "3.5.16"
+    version: "3.5.17"
   };
   var d3_arraySlice = [].slice, d3_array = function(list) {
     return d3_arraySlice.call(list);
@@ -3526,7 +3526,7 @@
         λ0 = λ, sinφ0 = sinφ, cosφ0 = cosφ, point0 = point;
       }
     }
-    return (polarAngle < -ε || polarAngle < ε && d3_geo_areaRingSum < 0) ^ winding & 1;
+    return (polarAngle < -ε || polarAngle < ε && d3_geo_areaRingSum < -ε) ^ winding & 1;
   }
   function d3_geo_clipCircle(radius) {
     var cr = Math.cos(radius), smallRadius = cr > 0, notHemisphere = abs(cr) > ε, interpolate = d3_geo_circleInterpolate(radius, 6 * d3_radians);
@@ -9644,19 +9644,6 @@ Simulation.prototype.graduate = function(graduation_rate) {
   });
 };
 
-Simulation.prototype.enrol = function() {
-  var best, ref, worst;
-  ref = this.rank_schools(), best = ref[0], worst = ref[1];
-  return this.graduates.forEach((function(_this) {
-    return function(student) {
-      student.achievement = Math.random();
-      if (Math.random() < _this.profile.selectivity) {
-        return student.school = student.achievement > 0.5 ? _this.schools[best.id] : _this.schools[worst.id];
-      }
-    };
-  })(this));
-};
-
 Simulation.prototype.rank_schools = function() {
   var best, ref, worst;
   this.measure_schools();
@@ -9676,6 +9663,19 @@ Simulation.prototype.measure_schools = function() {
         return prev + curr;
       });
       return school.score = total / students.length;
+    };
+  })(this));
+};
+
+Simulation.prototype.enrol = function() {
+  var best, ref, worst;
+  ref = this.rank_schools(), best = ref[0], worst = ref[1];
+  return this.graduates.forEach((function(_this) {
+    return function(student) {
+      student.achievement = Math.random();
+      if (Math.random() < _this.profile.selectivity) {
+        return student.school = student.achievement > 0.5 ? _this.schools[best.id] : _this.schools[worst.id];
+      }
     };
   })(this));
 };
