@@ -8,6 +8,9 @@ link-citations: true
 bibliography: /Users/davekinkead/Dropbox/Research/readings/.library.bibtex
 ---
 
+##### This paper is designed to be viewed interactively and is best viewed in HTML at [https://dave.kinkead.com.au/school-performance](https://dave.kinkead.com.au/school-performance).  A static PDF version is also provided.
+
+
 ## Abstract 
 
 > Measuring school performance has become an important activity within our education systems.  Today, most developed countries have some metric to rank and compare schools --- Adequate Yearly Progress (AYP) of No Child Left Behind (NCLB), Progress 8 scores, National Assessment Program - Literacy and Numeracy (NAPLAN), Trends in International Mathematics and Science Study (TIMSS), and the Programme for International Student Assessment (PISA).

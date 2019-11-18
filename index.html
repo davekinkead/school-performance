@@ -17,25 +17,25 @@
     font-family: 'Vollkorn';
     font-style: normal;
     font-weight: 400;
-    src: local('Vollkorn Regular'), local('Vollkorn-Regular'), url(http://fonts.gstatic.com/s/vollkorn/v6/idGKtgpe38okB6bfeHMsLHYhjbSpvc47ee6xR_80Hnw.woff2) format('woff2'), url(http://fonts.gstatic.com/s/vollkorn/v6/BCFBp4rt5gxxFrX6F12DKnYhjbSpvc47ee6xR_80Hnw.woff) format('woff');
+    src: local('Vollkorn Regular'), local('Vollkorn-Regular'), url(///fonts.gstatic.com/s/vollkorn/v6/idGKtgpe38okB6bfeHMsLHYhjbSpvc47ee6xR_80Hnw.woff2) format('woff2'), url(http://fonts.gstatic.com/s/vollkorn/v6/BCFBp4rt5gxxFrX6F12DKnYhjbSpvc47ee6xR_80Hnw.woff) format('woff');
   }
   @font-face {
     font-family: 'Vollkorn';
     font-style: normal;
     font-weight: 700;
-    src: local('Vollkorn Bold'), local('Vollkorn-Bold'), url(http://fonts.gstatic.com/s/vollkorn/v6/wMZpbUtcCo9GUabw9JODeogp9Q8gbYrhqGlRav_IXfk.woff2) format('woff2'), url(http://fonts.gstatic.com/s/vollkorn/v6/wMZpbUtcCo9GUabw9JODerrIa-7acMAeDBVuclsi6Gc.woff) format('woff');
+    src: local('Vollkorn Bold'), local('Vollkorn-Bold'), url(///fonts.gstatic.com/s/vollkorn/v6/wMZpbUtcCo9GUabw9JODeogp9Q8gbYrhqGlRav_IXfk.woff2) format('woff2'), url(http://fonts.gstatic.com/s/vollkorn/v6/wMZpbUtcCo9GUabw9JODerrIa-7acMAeDBVuclsi6Gc.woff) format('woff');
   }
   @font-face {
     font-family: 'Vollkorn';
     font-style: italic;
     font-weight: 400;
-    src: local('Vollkorn Italic'), local('Vollkorn-Italic'), url(http://fonts.gstatic.com/s/vollkorn/v6/Oiz0tNwvC-Nd29SBQWfWTAzyDMXhdD8sAj6OAJTFsBI.woff2) format('woff2'), url(http://fonts.gstatic.com/s/vollkorn/v6/Oiz0tNwvC-Nd29SBQWfWTL3hpw3pgy2gAi-Ip7WPMi0.woff) format('woff');
+    src: local('Vollkorn Italic'), local('Vollkorn-Italic'), url(///fonts.gstatic.com/s/vollkorn/v6/Oiz0tNwvC-Nd29SBQWfWTAzyDMXhdD8sAj6OAJTFsBI.woff2) format('woff2'), url(http://fonts.gstatic.com/s/vollkorn/v6/Oiz0tNwvC-Nd29SBQWfWTL3hpw3pgy2gAi-Ip7WPMi0.woff) format('woff');
   }
   @font-face {
     font-family: 'Vollkorn';
     font-style: italic;
     font-weight: 700;
-    src: local('Vollkorn Bold Italic'), local('Vollkorn-BoldItalic'), url(http://fonts.gstatic.com/s/vollkorn/v6/KNiAlx6phRqXCwnZZG51JGaVI6zN22yiurzcBKxPjFE.woff2) format('woff2'), url(http://fonts.gstatic.com/s/vollkorn/v6/KNiAlx6phRqXCwnZZG51JHbFhgvWbfSbdVg11QabG8w.woff) format('woff');
+    src: local('Vollkorn Bold Italic'), local('Vollkorn-BoldItalic'), url(///fonts.gstatic.com/s/vollkorn/v6/KNiAlx6phRqXCwnZZG51JGaVI6zN22yiurzcBKxPjFE.woff2) format('woff2'), url(http://fonts.gstatic.com/s/vollkorn/v6/KNiAlx6phRqXCwnZZG51JHbFhgvWbfSbdVg11QabG8w.woff) format('woff');
   }
   
   html {
@@ -66,6 +66,11 @@
   h1, h2, h3 {
     margin: 2rem auto;
     text-align: center;
+  }
+  h5 { 
+    font-size: 1rem;
+    font-weight: normal;
+    text-align: center; 
   }
   blockquote {
     font-style: italic;
@@ -120,10 +125,10 @@
   
   @media print {
     * {
-      font-size: 14px;
+      font-size: 20px;
     }
     body {
-      margin: 1cm 2cm;
+      margin: 0.5cm;
       text-align: justify;
     }
   
@@ -148,6 +153,7 @@
 <h1 class="title">How does school choice effect measures of school performance?</h1>
 <p class="author">Dave Kinkead</p>
 </header>
+<h5 id="this-paper-is-designed-to-be-viewed-interactively-and-is-best-viewed-in-html-at-httpsdave.kinkead.com.auschool-performance.-a-static-pdf-version-is-also-provided.">This paper is designed to be viewed interactively and is best viewed in HTML at <a href="https://dave.kinkead.com.au/school-performance" class="uri">https://dave.kinkead.com.au/school-performance</a>. A static PDF version is also provided.</h5>
 <h2 id="abstract">Abstract</h2>
 <blockquote>
 <p>Measuring school performance has become an important activity within our education systems. Today, most developed countries have some metric to rank and compare schools — Adequate Yearly Progress (AYP) of No Child Left Behind (NCLB), Progress 8 scores, National Assessment Program - Literacy and Numeracy (NAPLAN), Trends in International Mathematics and Science Study (TIMSS), and the Programme for International Student Assessment (PISA).</p>
